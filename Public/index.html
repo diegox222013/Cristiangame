@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#090b13">
+  <title>Riftbound Arena</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" aria-label="Riftbound Arena"></canvas>
+
+    <section id="mainMenu" class="screen active">
+      <div class="panel hero-panel">
+        <div class="eyebrow">ORIGINAL 2D FIGHTER</div>
+        <h1>RIFTBOUND<br><span>ARENA</span></h1>
+        <p>Fast combat. Clean controls. Procedural spectacle.</p>
+        <div class="menu-grid">
+          <button data-menu="play">PLAY</button>
+          <button data-menu="characters">CHARACTERS</button>
+          <button data-menu="arenas">ARENAS</button>
+          <button data-menu="controls">CONTROLS</button>
+          <button data-menu="options">OPTIONS</button>
+        </div>
+        <div class="tiny">Landscape mode recommended • Touch + keyboard</div>
+      </div>
+    </section>
+
+    <section id="characterMenu" class="screen">
+      <div class="panel">
+        <h2>CHOOSE YOUR FIGHTER</h2>
+        <div id="characterCards" class="cards"></div>
+        <button class="back" data-back>BACK</button>
+      </div>
+    </section>
+
+    <section id="arenaMenu" class="screen">
+      <div class="panel">
+        <h2>CHOOSE ARENA</h2>
+        <div id="arenaCards" class="cards"></div>
+        <button class="back" data-back>BACK</button>
+      </div>
+    </section>
+
+    <section id="controlsMenu" class="screen">
+      <div class="panel text-panel">
+        <h2>CONTROLS</h2>
+        <div class="control-columns">
+          <div><b>PC</b><p>A / D — Move</p><p>W — Jump</p><p>J — Attack</p><p>K — Heavy</p><p>L — Dash</p><p>U — Special</p><p>I — Ultimate</p></div>
+          <div><b>MOBILE</b><p>Joystick — Move</p><p>Attack / Heavy — Strikes</p><p>Jump / Dash — Mobility</p><p>Special — Character skill</p><p>Ultimate — Full energy</p></div>
+        </div>
+        <button class="back" data-back>BACK</button>
+      </div>
+    </section>
+
+    <section id="optionsMenu" class="screen">
+      <div class="panel text-panel">
+        <h2>OPTIONS</h2>
+        <label class="toggle-row">Screen shake <input id="shakeToggle" type="checkbox" checked></label>
+        <label class="toggle-row">Particles <input id="particleToggle" type="checkbox" checked></label>
+        <label class="toggle-row">Sound <input id="soundToggle" type="checkbox" checked></label>
+        <button class="back" data-back>BACK</button>
+      </div>
+    </section>
+
+    <section id="gameHUD" class="hud">
+      <div class="topbar">
+        <div class="fighterHUD leftHUD">
+          <div class="name-row"><span id="playerName">VEX</span><span id="playerUlt">ULT</span></div>
+          <div class="bar"><i id="playerHP"></i></div>
+          <div class="energy"><i id="playerEnergy"></i></div>
+        </div>
+        <div id="timer">60</div>
+        <div class="fighterHUD rightHUD">
+          <div class="name-row"><span id="enemyUlt">ULT</span><span id="enemyName">BRONT</span></div>
+          <div class="bar"><i id="enemyHP"></i></div>
+          <div class="energy"><i id="enemyEnergy"></i></div>
+        </div>
+      </div>
+      <div id="comboText"></div>
+      <div id="ultimateText">ULTIMATE!</div>
+      <div id="mobileControls">
+        <div id="joystick" class="joystick"><div id="stick"></div></div>
+        <div class="actions">
+          <button data-action="light">ATK</button>
+          <button data-action="heavy">HEAVY</button>
+          <button data-action="jump">JUMP</button>
+          <button data-action="dash">DASH</button>
+          <button data-action="special">SPECIAL</button>
+          <button data-action="ultimate">ULT</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultMenu" class="screen">
+      <div class="panel result-panel">
+        <div id="resultKicker">MATCH OVER</div>
+        <h1 id="resultTitle">VICTORY</h1>
+        <p id="resultStats"></p>
+        <button id="rematch">REMATCH</button>
+        <button class="back" id="resultBack">MENU</button>
+      </div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
